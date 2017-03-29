@@ -1,21 +1,21 @@
-import React, { PropTypes } from 'react'
-import { bindActionCreators } from 'redux'
-import { connect } from 'react-redux'
-import { Counter } from '../components'
-import * as CounterActions from '../actions/CounterActions'
+import React, { PropTypes } from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { Counter } from '../components';
+import * as CounterActions from '../actions/CounterActions';
 
 class CounterContainer extends React.Component {
   increment = () => {
-    this.props.increment()
-  }
+    this.props.increment();
+  };
 
   decrement = () => {
-    this.props.decrement()
-  }
+    this.props.decrement();
+  };
 
   incrementIfOdd = () => {
-    this.props.incrementIfOdd()
-  }
+    this.props.incrementIfOdd();
+  };
 
   render() {
     return (
@@ -25,25 +25,22 @@ class CounterContainer extends React.Component {
         decrement={this.decrement}
         incrementIfOdd={this.incrementIfOdd}
       />
-    )
+    );
   }
 }
 
 CounterContainer.propTypes = {
   dispatch: PropTypes.func.isRequired,
-}
+};
 
-function mapStateToProps (state) {
+function mapStateToProps(state) {
   return {
     counter: state.counter,
-  }
+  };
 }
 
-function mapDispatchToProps (dispatch) {
-  return bindActionCreators(CounterActions, dispatch)
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(CounterActions, dispatch);
 }
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(CounterContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(CounterContainer);

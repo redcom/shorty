@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
-import { CounterContainer } from '../containers'
-import { Header } from '../components'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import React, { Component } from 'react';
+import { AppContainer } from '../containers';
+import { Header } from '../components';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 class Routes extends Component {
   render() {
@@ -9,11 +9,11 @@ class Routes extends Component {
       <Router>
         <div className="app-container">
           <Header />
-           <Route path="/" component={CounterContainer} />
+          <Route path="/" component={AppContainer} />
         </div>
       </Router>
-    )
+    );
   }
 }
 
-export default Routes
+export default Routes;

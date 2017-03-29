@@ -1,11 +1,13 @@
-import React, { PropTypes } from 'react'
+import React, { PropTypes } from 'react';
 
-function Counter({
-  increment,
-  incrementIfOdd,
-  decrement,
-  counter,
-}) {
+function Counter(
+  {
+    increment,
+    incrementIfOdd,
+    decrement,
+    counter,
+  },
+) {
   return (
     <section>
       <p className="intro">
@@ -22,7 +24,7 @@ function Counter({
         <button onClick={incrementIfOdd}>Increment if odd</button>
       </p>
     </section>
-  )
+  );
 }
 
 Counter.propTypes = {
@@ -30,6 +32,6 @@ Counter.propTypes = {
   incrementIfOdd: PropTypes.func.isRequired,
   decrement: PropTypes.func.isRequired,
   counter: PropTypes.number.isRequired,
-}
+};
 
-export default Counter
+export default Counter;
