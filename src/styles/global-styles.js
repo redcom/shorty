@@ -1,4 +1,4 @@
-import { injectGlobal, keyframes } from 'styled-components'
+import { injectGlobal, keyframes } from 'styled-components';
 
 const rotate360 = keyframes`
   from {
@@ -7,7 +7,7 @@ const rotate360 = keyframes`
   to {
     transform: rotate(360deg);
   }
-`
+`;
 
 /* eslint no-unused-expressions: 0 */
 injectGlobal`
@@ -22,19 +22,23 @@ injectGlobal`
     font-family: sans-serif;
   }
   .app-container {
-    text-align: center;
   }
+
   .redux-logo {
     animation: ${rotate360} infinite 20s linear;
-    height: 80px;
+    height: 60px;
   }
   header {
     background-color: #222;
-    height: 150px;
+    height: 120px;
     padding: 20px;
     color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
   }
   .intro {
     font-size: large;
   }
-`
+`;
