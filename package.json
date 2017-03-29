@@ -13,16 +13,21 @@
     "styled-components": "^1.4.4"
   },
   "devDependencies": {
-    "node-plop": "^0.5.5",
-    "plop": "^1.7.4",
     "babel-eslint": "^7.1.1",
     "eslint": "^3.17.1",
+    "eslint-config-airbnb": "^14.1.0",
     "eslint-config-react-app": "^0.6.2",
-    "eslint-plugin-flowtype": "^2.30.3",
+    "eslint-plugin-flowtype": "^2.30.4",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.10.0",
+    "flow": "^0.2.3",
+    "flow-bin": "^0.42.0",
+    "flow-typed": "^2.0.0",
     "husky": "^0.13.2",
+    "node-plop": "^0.5.5",
+    "plop": "^1.7.4",
+    "prettier": "^0.22.0",
     "react-scripts": "0.9.5"
   },
   "scripts": {
@@ -32,32 +37,8 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "lint": "eslint 'src/**/*.{js}'",
-    "precommit": "npm run lint",
-    "generate": "plop --plopfile generators/index.js"
-  },
-  "eslintConfig": {
-    "extends": "react-app",
-    "rules": {
-      "comma-dangle": [
-        "error",
-        "always-multiline"
-      ],
-      "react/jsx-space-before-closing": [
-        2,
-        "always"
-      ],
-      "react/jsx-closing-bracket-location": [
-        2,
-        "tag-aligned"
-      ],
-      "semi": [
-        "error",
-        "never"
-      ],
-      "max-len": [
-        "error",
-        80
-      ]
-    }
+    "precommit": "yarn run lint; yarn run prettier;",
+    "generate": "plop --plopfile generators/index.js",
+    "prettier": "prettier --bracket-spacing --single-quote --tab-width 2 --trailing-comma all --parser babylon --print-width 80  --write \"{{src,webpack},__{tests,mocks}__}/**/*.js\""
   }
 }
