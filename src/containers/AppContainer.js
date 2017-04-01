@@ -1,10 +1,20 @@
 import React from 'react';
-import { Wrapper, FormUrlShorter } from '../components';
+import { Wrapper } from '../components';
+import {
+  ShortUrlContainer,
+  LinksContainer,
+} from '../containers';
 
 const AppContainer = () => (
-  <Wrapper>
-    <FormUrlShorter />
-  </Wrapper>
+  <div>
+    <Wrapper>
+      <ShortUrlContainer />
+    </Wrapper>
+    <Wrapper>
+      <h4>List of links</h4>
+      <LinksContainer />
+    </Wrapper>
+ </div>
 );
 
 export default AppContainer;
