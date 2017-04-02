@@ -4,33 +4,7 @@ import type { Links } from '../store/CommonStoreTypes';
 import { ADD_URL } from '../constants/ActionTypes';
 import link from './link';
 
-const initialState = [
-  {
-    id: 0,
-    url: 'http://khlahdsklhalkhfdalksdjhfs.com',
-    shortUrl: 'asdasdasd.com',
-  },
-  {
-    id: 1,
-    url: 'http://khlahdsklhalkhfdalksdjhfs.com',
-    shortUrl: 'asdasdasd.com',
-  },
-  {
-    id: 2,
-    url: 'http://khlahdsklhalkhfdalksdjhfs.com',
-    shortUrl: 'asdasdasd.com',
-  },
-  {
-    id: 3,
-    url: 'http://khlahdsklhalkhfdalksdjhfs.com',
-    shortUrl: 'asdasdasd.com',
-  },
-  {
-    id: 4,
-    url: 'http://khlahdsklhalkhfdalksdjhfs.com',
-    shortUrl: 'asdasdasd.com',
-  },
-];
+const initialState = [];
 
 const links = (state: Links = initialState, action: Object) => {
   switch (action.type) {

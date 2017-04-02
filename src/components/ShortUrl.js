@@ -10,6 +10,7 @@ import styled from 'styled-components';
 
 // Styled component used bellow
 const ShortForm = styled.form`
+  display: flex;
   margin: ${defaultSpaceBetweenElements};
   > input {
     margin: ${defaultSpaceBetweenElements};
