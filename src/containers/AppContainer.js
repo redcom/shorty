@@ -1,9 +1,6 @@
 import React from 'react';
 import { Wrapper } from '../components';
-import {
-  ShortUrlContainer,
-  LinksContainer,
-} from '../containers';
+import { ShortUrlContainer, LinksContainer } from '../containers';
 
 const AppContainer = () => (
   <div>
@@ -14,7 +11,7 @@ const AppContainer = () => (
       <h4>List of links</h4>
       <LinksContainer />
     </Wrapper>
- </div>
+  </div>
 );
 
 export default AppContainer;

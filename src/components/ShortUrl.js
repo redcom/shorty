@@ -2,14 +2,16 @@
 
 import React from 'react';
 
-const ShortUrl = ({
-  onAddUrl,
-}:{
- onAddUrl: Function,
-}) => {
+const ShortUrl = (
+  {
+    onAddUrl,
+  }: {
+    onAddUrl: Function,
+  },
+) => {
   let input;
 
-  const submitForm = (evt) => {
+  const submitForm = evt => {
     onAddUrl(input.value);
     input.value = null;
   };
@@ -22,18 +24,15 @@ const ShortUrl = ({
         type="url"
         required="required"
         placeholder="http://long-url-here.com"
-        ref={(url) => {
+        ref={url => {
           input = url;
         }}
       />
-      <button
-        onClick={submitForm}
-      >
-      Make it short
+      <button onClick={submitForm}>
+        Make it short
       </button>
-      </div>
+    </div>
   );
 };
 
 export default ShortUrl;
-

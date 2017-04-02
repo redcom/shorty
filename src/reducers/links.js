@@ -1,12 +1,14 @@
+// @flow
+import type {Links} from '../store/CommonStoreTypes';
+
 import { ADD_URL } from '../constants/ActionTypes';
+import link from './link';
 
-const initialState = [];
-
-const links = (state = initialState, action) => {
+const links = ( state:Links = [], action:Object) => {
   switch (action.type) {
     case ADD_URL:
       return [
-        action.url,
+        link(undefined, {...action, id: state.length + 1}),
         ...state
       ];
     default:
