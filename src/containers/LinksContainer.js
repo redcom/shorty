@@ -14,10 +14,10 @@ const LinksListContainer = (
 ) => {
   return (
     <div>
-    <Title>List of links</Title>
-    <LinksList>
-      {links.map(link => <LinkItem key={link.id} {...link} />)}
-    </LinksList>
+      <Title>List of links</Title>
+      <LinksList>
+        {links.map(link => <LinkItem key={link.id} {...link} />)}
+      </LinksList>
     </div>
   );
 };

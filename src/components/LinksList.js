@@ -9,5 +9,4 @@ const LinksList = styled.div`
   }
 `;
 
-
 export default LinksList;
