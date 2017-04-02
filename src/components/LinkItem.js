@@ -3,7 +3,6 @@
 import type { Link } from '../store/CommonStoreTypes';
 import React from 'react';
 
-
 const LinkItem = (
   {
     id = 0,

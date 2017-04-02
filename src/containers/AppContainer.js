@@ -8,7 +8,6 @@ const AppContainer = () => (
       <ShortUrlContainer />
     </Wrapper>
     <Wrapper>
-      <h4>List of links</h4>
       <LinksContainer />
     </Wrapper>
   </div>
