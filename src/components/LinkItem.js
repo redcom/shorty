@@ -5,6 +5,7 @@ import React from 'react';
 
 import styled from 'styled-components';
 import { defaultSpaceInBetween } from '../styles/vars';
+import { Button } from '../components';
 
 const Item = styled.div`
   display: flex;
@@ -32,18 +33,23 @@ const ItemActions = styled.div`
   flex-grow: 2;
 `;
 
+type ExtendedLink = Link & { onDelete: Function };
+
 const LinkItem = (
   {
     id = 0,
     url = '',
     shortUrl = '',
-  }: Link,
+    onDelete,
+  }: ExtendedLink,
 ) => (
   <Item>
     <ItemId>{id}</ItemId>
     <ItemLongUrl>{url}</ItemLongUrl>
     <ItemShortUrl>{shortUrl}</ItemShortUrl>
-    <ItemActions>Actions</ItemActions>
+    <ItemActions>
+      <Button onClick={onDelete}>Delete</Button>
+    </ItemActions>
   </Item>
 );
 

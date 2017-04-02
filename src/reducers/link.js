@@ -1,7 +1,7 @@
 // @flow
 import type { Link } from '../store/CommonStoreTypes';
 
-import { ADD_URL } from '../constants/ActionTypes';
+import { ADD_URL, REMOVE_URL } from '../constants/ActionTypes';
 
 const link = (state: ?Link, action: Object) => {
   switch (action.type) {
@@ -11,6 +11,8 @@ const link = (state: ?Link, action: Object) => {
         url: action.url,
         shortUrl: action.url,
       };
+    case REMOVE_URL:
+      return state && state.id !== action.id;
     default:
       return state;
   }

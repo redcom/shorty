@@ -3,10 +3,10 @@ import {
   defaultBorderStyle,
   defaultFontSize,
   defaultSpaceBetweenElements,
-  defaultPrimaryActionColor,
 } from '../styles/vars';
 
 import styled from 'styled-components';
+import { Button } from '../components';
 
 // Styled component used bellow
 const ShortForm = styled.form`
@@ -18,13 +18,6 @@ const ShortForm = styled.form`
     border: ${defaultBorderStyle};
     width: 70%;
 }
-`;
-
-const Button = styled.button`
-  margin: ${defaultSpaceBetweenElements};;
-  font-size: ${defaultFontSize};
-  border: none;
-  background: ${defaultPrimaryActionColor};
 `;
 
 const Label = styled.label`
