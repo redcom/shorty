@@ -18,6 +18,7 @@
     "server:start": "NODE_ENV=production PORT=8888 babel-node ./server/"
   },
   "dependencies": {
+    "babel-polyfill": "^6.23.0",
     "babel-preset-stage-0": "^6.22.0",
     "express": "^4.15.2",
     "helmet": "^3.5.0",

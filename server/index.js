@@ -1,13 +1,18 @@
+import 'babel-polyfill';
+
 import express from 'express';
 import helmet from 'helmet';
 import path from 'path';
 import http from 'http';
+
+import apiV1 from './apiV1/index';
 
 const ENV = process.env.NODE_ENV || 'dev';
 const isDevEnv = ENV === 'dev';
 const baseDir = path.dirname(__dirname);
 
 const app = express();
+const Router = express.Router();
 
 // protect api from various hacking techniques
 app.use(helmet.frameguard());
@@ -27,12 +32,7 @@ if (process.env.NODE_ENV !== 'production') {
     app.use(express.static(path.join(baseDir, '/build')));
   }
 
-
-app.get('/*', function (req, res) {
-   res.sendFile(path.join(baseDir, '/build', 'index.html'));
-});
-
-
+apiV1(Router);
 
 const PORT = process.env.PORT || 8888;
 
