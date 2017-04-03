@@ -1,4 +1,5 @@
 // @flow
+
 import { ADD_URL, REMOVE_URL } from '../constants/ActionTypes';
 
 export const addUrl = (url: string): Object => {

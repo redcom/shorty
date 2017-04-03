@@ -8,7 +8,7 @@ import { deleteUrl } from '../actions/ShortUrlActions';
 
 const LinksListContainer = (
   {
-    links,
+    links = [],
     dispatch,
   }: {
     links: Links,
