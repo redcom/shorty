@@ -2,6 +2,21 @@
   "name": "create-redux-app",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:8888",
+  "scripts": {
+    "init": "./init.sh",
+    "start": "parallelshell 'yarn run client:watch' 'yarn run server:watch'",
+    "client:watch": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "lint": "eslint 'src/**/*.{js}'",
+    "precommit": "yarn run lint; yarn run prettier;",
+    "generate": "plop --plopfile generators/index.js",
+    "prettier": "prettier --bracket-spacing --single-quote --tab-width 2 --trailing-comma all --parser babylon --print-width 80  --write \"{{src,webpack},__{tests,mocks}__}/**/*.js\"",
+    "server:watch": "NODE_ENV=dev PORT=8888 nodemon --exec babel-node -- ./server/",
+    "server:start": "NODE_ENV=production PORT=8888 babel-node ./server/"
+  },
   "dependencies": {
     "babel-preset-stage-0": "^6.22.0",
     "express": "^4.15.2",
@@ -15,7 +30,6 @@
     "redux-thunk": "^2.2.0",
     "styled-components": "^1.4.4"
   },
-  "proxy": "http://localhost:8888",
   "devDependencies": {
     "babel-cli": "^6.24.0",
     "babel-eslint": "^7.1.1",
@@ -33,21 +47,9 @@
     "husky": "^0.13.2",
     "node-plop": "^0.5.5",
     "nodemon": "^1.11.0",
+    "parallelshell": "^2.0.0",
     "plop": "^1.7.4",
     "prettier": "^0.22.0",
     "react-scripts": "0.9.5"
-  },
-  "scripts": {
-    "init": "./init.sh",
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "lint": "eslint 'src/**/*.{js}'",
-    "precommit": "yarn run lint; yarn run prettier;",
-    "generate": "plop --plopfile generators/index.js",
-    "prettier": "prettier --bracket-spacing --single-quote --tab-width 2 --trailing-comma all --parser babylon --print-width 80  --write \"{{src,webpack},__{tests,mocks}__}/**/*.js\"",
-    "server:watch": "NODE_ENV=dev PORT=8888 nodemon --exec babel-node -- ./server/",
-    "server:start": "NODE_ENV=production PORT=8888 babel-node server"
   }
 }
