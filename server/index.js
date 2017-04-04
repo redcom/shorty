@@ -5,6 +5,7 @@ import bodyParser from 'body-parser';
 import helmet from 'helmet';
 import path from 'path';
 import http from 'http';
+import cors from 'cors';
 
 import storage from './storage';
 import ApiV1 from './apiV1/index';
@@ -38,7 +39,8 @@ app.use(bodyParser.json());
 app.set('storage', storage());
 
 // api middlewares
-app.use('/v1', ApiV1);
+// enable cors only for this path
+app.use('/v1', cors(), ApiV1);
 
 
 const PORT = process.env.PORT || 8888;
