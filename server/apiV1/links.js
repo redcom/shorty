@@ -8,9 +8,9 @@ export const newLink = (req, res) => {
 
 export const deleteLink = (req, res) => {
   const storage = req.app.get('storage');
-  const itemId = req.params.id || -1;
+  const id = req.body.id || -1;
 
-  storage.delete(itemId);
+  storage.delete(id);
   res.sendStatus(200);
 };
 
