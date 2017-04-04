@@ -1,18 +1,19 @@
 import 'babel-polyfill';
 
 import express from 'express';
+import bodyParser from 'body-parser';
 import helmet from 'helmet';
 import path from 'path';
 import http from 'http';
 
-import apiV1 from './apiV1/index';
+import storage from './storage';
+import ApiV1 from './apiV1/index';
 
 const ENV = process.env.NODE_ENV || 'dev';
 const isDevEnv = ENV === 'dev';
 const baseDir = path.dirname(__dirname);
 
 const app = express();
-const Router = express.Router();
 
 // protect api from various hacking techniques
 app.use(helmet.frameguard());
@@ -26,13 +27,19 @@ if (process.env.NODE_ENV !== 'production') {
   app.use(helmet.noCache());
 }
 
-  if (isDevEnv) {
-    app.use(express.static(path.join(baseDir, '/build')));
-  } else {
-    app.use(express.static(path.join(baseDir, '/build')));
-  }
+if (isDevEnv) {
+  app.use(express.static(path.join(baseDir, '/build')));
+} else {
+  app.use(express.static(path.join(baseDir, '/build')));
+}
 
-apiV1(Router);
+app.use(bodyParser.json());
+
+app.set('storage', storage());
+
+// api middlewares
+app.use('/v1', ApiV1);
+
 
 const PORT = process.env.PORT || 8888;
 

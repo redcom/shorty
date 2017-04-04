@@ -1,5 +1,22 @@
-import links from './links';
+import express from 'express';
 
-export default (router) => {
-  router.post('/v1/links', links);
+import {
+  newLink,
+  deleteLink,
+  getLink,
+  getAllLinks,
+} from './links';
+
+const Router = express.Router();
+
+const ApiV1 = () => {
+  Router
+    .post('/links', newLink )
+    .delete('/links', deleteLink )
+    .get('/links/:id', getLink )
+    .get('/links', getAllLinks )
+
+  return Router;
 };
+
+export default ApiV1();
