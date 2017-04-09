@@ -17,7 +17,7 @@ const addUrl = ({ url = '', id = 0 }) => {
 const link = (state: ?Link, action: Object) => {
   switch (action.type) {
     case ADD_URL:
-        return addUrl(action);
+      return addUrl(action);
     case REMOVE_URL:
       return state && state.id !== action.id;
     default:

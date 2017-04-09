@@ -1,5 +1,3 @@
-import 'babel-polyfill';
-
 import express from 'express';
 import bodyParser from 'body-parser';
 import helmet from 'helmet';
@@ -48,6 +46,7 @@ const server = http.createServer(app);
 server.listen(PORT);
 
 if (isDevEnv) {
+  // eslint-disable-line no-console
   console.log(`Server is listening on port ${PORT}`);
 }
 

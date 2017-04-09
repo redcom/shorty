@@ -10,7 +10,8 @@ const opts = {
     Accept: 'application/json',
   }),
 };
-const fetchStateFromServer = opts => async () => {
+const fetchStateFromServer = opts =>
+  async () => {
     const response = await fetch(`${API_URL}/links`, opts);
     const body = await response.json();
     return body;
