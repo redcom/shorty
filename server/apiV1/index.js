@@ -1,20 +1,14 @@
 import express from 'express';
 
-import {
-  newLink,
-  deleteLink,
-  getLink,
-  getAllLinks,
-} from './links';
+import { newLink, deleteLink, getLink, getAllLinks } from './links';
 
 const Router = express.Router();
 
 const ApiV1 = () => {
-  Router
-    .post('/links', newLink )
-    .delete('/links', deleteLink )
-    .get('/links/:id', getLink )
-    .get('/links', getAllLinks )
+  Router.post('/links', newLink)
+    .delete('/links', deleteLink)
+    .get('/links/:id', getLink)
+    .get('/links', getAllLinks);
 
   return Router;
 };

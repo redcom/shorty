@@ -4,6 +4,7 @@
     "flowtype",
   ],
   "extends" : [
+    "airbnb",
     "plugin:flowtype/recommended"
   ],
   "env": {

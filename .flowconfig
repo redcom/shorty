@@ -2,6 +2,7 @@
 
 ; Ignore unexpected extra "@providesModule"
 .*/node_modules/.*/node_modules/fbjs/.*
+.*/node_modules/fbjs/.*
 .*/node_modules/styled-components/.*
 
 

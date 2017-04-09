@@ -42,7 +42,6 @@ app.set('storage', storage());
 // enable cors only for this path
 app.use('/v1', cors(), ApiV1);
 
-
 const PORT = process.env.PORT || 8888;
 
 const server = http.createServer(app);
@@ -53,5 +52,3 @@ if (isDevEnv) {
 }
 
 export default app;
-
-

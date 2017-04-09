@@ -1,19 +1,17 @@
 {
-  "name": "create-redux-app",
-  "version": "0.1.0",
+  "name": "shorty",
+  "version": "1.0.0",
   "private": true,
   "proxy": "http://localhost:8888",
   "scripts": {
-    "init": "./init.sh",
     "start": "parallelshell 'yarn run client:watch' 'yarn run server:watch'",
-    "client:watch": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "lint": "eslint 'src/**/*.{js}'",
+    "client:watch": "cd client && react-scripts start",
+    "client:build": "cd client && react-scripts build",
+    "client:test": "cd client && react-scripts test --env=jsdom",
+    "client:eject": "cd client && react-scripts eject",
+    "lint": "eslint 'client/src/**/*.js' 'server/**/*.js'",
     "precommit": "yarn run lint; yarn run prettier;",
-    "generate": "plop --plopfile generators/index.js",
-    "prettier": "prettier --bracket-spacing --single-quote --tab-width 2 --trailing-comma all --parser babylon --print-width 80  --write \"{{src,webpack},__{tests,mocks}__}/**/*.js\"",
+    "prettier": "prettier --bracket-spacing --single-quote --tab-width 2 --trailing-comma all --parser babylon --print-width 80  --write \"{{client/src,server,webpack},__{tests,mocks}__}/**/*.js\"",
     "server:watch": "NODE_ENV=dev PORT=8888 nodemon --exec babel-node -- ./server/",
     "server:start": "NODE_ENV=production PORT=8888 babel-node ./server/"
   },
@@ -48,10 +46,8 @@
     "flow-bin": "^0.42.0",
     "flow-typed": "^2.0.0",
     "husky": "^0.13.2",
-    "node-plop": "^0.5.5",
     "nodemon": "^1.11.0",
     "parallelshell": "^2.0.0",
-    "plop": "^1.7.4",
     "prettier": "^0.22.0",
     "react-scripts": "0.9.5"
   }
