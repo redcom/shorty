@@ -8,6 +8,8 @@
     "plugin:flowtype/recommended"
   ],
   "env": {
+    "browser": true,
+    "node": true,
     "jest": true
   },
   "rules": {
@@ -24,6 +26,7 @@
     "no-shadow": 0, // Shadowing is a nice language feature. Naming is hard.
     "indent": 0, // Prettier ftw.
     // React.
+    "react/sort-comp": 0,
     "react/forbid-prop-types": 0,
     "react/jsx-filename-extension": 0,
     "react/jsx-closing-bracket-location": 0,

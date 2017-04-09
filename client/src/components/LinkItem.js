@@ -16,7 +16,7 @@ const Item = styled.div`
 }
 `;
 
-//TODO Drop itemId and clip long url on small screen size using media queries
+// TODO Drop itemId and clip long url on small screen size using media queries
 const ItemId = styled.div`
   flex-grow: 1;
 `;

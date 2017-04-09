@@ -85,7 +85,7 @@ describe('links() -> reducer: default', () => {
     const actual = links(state, action);
     const expected = state;
 
-    expect(actual).toEqual(state);
-    expect(actual).toBe(state);
+    expect(actual).toEqual(expected);
+    expect(actual).toBe(expected);
   });
 });

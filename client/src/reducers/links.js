@@ -15,9 +15,7 @@ const initialState = [];
 const links = (state: Links = initialState, action: Object) => {
   switch (action.type) {
     case ADD_URL:
-      const newEntry = link(undefined, { ...action, id: state.length + 1 });
-      return !!newEntry ? [newEntry, ...state] : [...state];
-
+      return ([link(undefined, { ...action, id: state.length + 1 }), ...state]);
     case REMOVE_URL:
       return state.filter(l => link(l, action));
     case GET_INITIAL_STATE:

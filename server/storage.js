@@ -1,13 +1,11 @@
 // plain storage with quick access methods to manage a simple store
 const storage = () => {
-  const store = (bucket = []) => {
-    return {
+  const store = (bucket = []) => ({
       get: id => bucket[id],
-      put: item => bucket = [item, ...bucket],
+      put: item => [item, ...bucket],
       delete: id => bucket.filter(i => i.id !== id),
       getAll: () => bucket,
-    };
-  };
+    });
 
   return store();
 };
