@@ -25,4 +25,3 @@ describe('isUrl()', () => {
     expect(actual).toBe(expected);
   });
 });
-
