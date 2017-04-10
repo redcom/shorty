@@ -1,9 +1,13 @@
 export const newLink = (req, res) => {
   const storage = req.app.get('storage');
-  const item = req.body;
+  const item = {
+    ...req.body,
+    id: storage.getNextId(),
+    shortUrl: `short_${storage.getNextId()}`,
+  };
 
   storage.put(item);
-  res.sendStatus(200);
+  res.json(storage.get(0));
 };
 
 export const deleteLink = (req, res) => {

@@ -4,15 +4,19 @@ import { connect } from 'react-redux';
 import { AppContainer } from '../containers';
 import { Header } from '../components';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import { getInitialState } from '../actions/AppActions';
+import { getInitialState, hidrateStoreWithState } from '../actions/AppActions';
 
 class Routes extends Component {
   props: {
     dispatch: Function,
   };
 
+  hidrateStateFromServer = state => {
+    this.props.dispatch(hidrateStoreWithState(state));
+  };
+
   componentDidMount() {
-    this.props.dispatch(getInitialState());
+    this.props.dispatch(getInitialState(this.hidrateStateFromServer));
   }
 
   render() {

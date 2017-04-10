@@ -11,16 +11,16 @@ const opts = {
   }),
 };
 const fetchStateFromServer = opts =>
-  async () => {
+  async cb => {
     const response = await fetch(`${API_URL}/links`, opts);
     const body = await response.json();
-    return body;
+    return cb(body);
   };
 
 const apiActions = (state: Links, action: Object) => {
   switch (action.type) {
     case GET_INITIAL_STATE:
-      fetchStateFromServer(opts)();
+      fetchStateFromServer(opts)(action.cb);
       return state;
     default:
       return state;

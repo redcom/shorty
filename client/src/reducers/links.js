@@ -5,6 +5,7 @@ import {
   ADD_URL,
   REMOVE_URL,
   GET_INITIAL_STATE,
+  HIDRATE_INITIAL_STATE,
 } from '../constants/ActionTypes';
 
 import link from './link';
@@ -20,6 +21,8 @@ const links = (state: Links = initialState, action: Object) => {
       return state.filter(l => link(l, action));
     case GET_INITIAL_STATE:
       return apiActions(state, action);
+    case HIDRATE_INITIAL_STATE:
+      return [...state, ...action.links];
     default:
       return state;
   }

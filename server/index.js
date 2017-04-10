@@ -27,9 +27,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 if (isDevEnv) {
-  app.use(express.static(path.join(baseDir, '/build')));
-} else {
-  app.use(express.static(path.join(baseDir, '/build')));
+  app.use(express.static(path.join(baseDir, '/client/build')));
 }
 
 app.use(bodyParser.json());
@@ -46,8 +44,7 @@ const server = http.createServer(app);
 server.listen(PORT);
 
 if (isDevEnv) {
-  // eslint-disable-line no-console
-  console.log(`Server is listening on port ${PORT}`);
+  console.log(`Server is listening on port ${PORT}`); // eslint-disable-line no-console
 }
 
 export default app;
