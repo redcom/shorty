@@ -9,7 +9,7 @@
     "client:build": "cd client && react-scripts build",
     "client:test": "cd client && react-scripts test --env=jsdom",
     "client:eject": "cd client && react-scripts eject",
-    "lint": "eslint 'client/src/**/*.js' 'server/**/*.js'",
+    "lint": "eslint --fix 'client/src/**/*.js' 'server/**/*.js'",
     "precommit": "yarn run lint; yarn run prettier;",
     "prettier": "prettier --bracket-spacing --single-quote --tab-width 2 --trailing-comma all --parser babylon --print-width 80  --write \"{{client/src,server,webpack},__{tests,mocks}__}/**/*.js\"",
     "server:watch": "NODE_ENV=dev PORT=8888 nodemon --exec babel-node -- ./server/",

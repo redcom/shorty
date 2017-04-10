@@ -1,3 +1,5 @@
+// @flow
+
 import React from 'react';
 import {
   defaultBorderStyle,
@@ -40,17 +42,20 @@ const ShortUrl = (
     input.value = null;
   };
 
+  const onChange = evt => {
+    input = evt.target;
+  };
+
   return (
     <ShortForm onSubmit={submitForm}>
       <Label htmlFor="url">Long url:</Label>
       <input
+        value={input}
         id="url"
         type="url"
         required="required"
         placeholder="http://long-url-here.com"
-        ref={url => {
-          input = url;
-        }}
+        onChange={onChange}
       />
       <Button onClick={submitForm}>
         Make it short

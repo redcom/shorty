@@ -1,11 +1,12 @@
 // @flow
 import type { Link } from '../store/CommonStoreTypes';
+import { isUrl } from '../helpers/validators';
 
 import { ADD_URL, REMOVE_URL } from '../constants/ActionTypes';
 
 const addUrl = ({ url = '', id = 0 }) => {
   // TODO check if the url is actually a url and add a error state to be displayed
-  if (url.trim()) {
+  if (isUrl(url)) {
     return {
       id,
       url,

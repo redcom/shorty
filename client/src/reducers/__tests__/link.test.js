@@ -4,7 +4,7 @@ import { ADD_URL, REMOVE_URL } from '../../constants/ActionTypes';
 describe('link() -> reducer: ADD_URL', () => {
   test('a new link entry is returned', () => {
     const state = undefined;
-    const action = { type: ADD_URL, url: 'http://some.url' };
+    const action = { id: 0, type: ADD_URL, url: 'http://some.url' };
     const actual = link(state, action);
     const expected = {
       id: action.id,
