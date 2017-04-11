@@ -1,6 +1,6 @@
 import { injectGlobal, keyframes } from 'styled-components';
 
-const rotate360 = keyframes`
+export const rotate360 = keyframes`
   from {
     transform: rotate(0deg);
   }
@@ -8,6 +8,7 @@ const rotate360 = keyframes`
     transform: rotate(360deg);
   }
 `;
+
 
 /* eslint no-unused-expressions: 0 */
 injectGlobal`
