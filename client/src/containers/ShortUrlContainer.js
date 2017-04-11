@@ -3,7 +3,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { ShortUrl } from '../components';
-import { addUrl } from '../actions/ShortUrlActions';
+import { addUrl, addUrlFailed } from '../actions/ShortUrlActions';
 
 const ShortUrlContainer = (
   {
@@ -13,7 +13,11 @@ const ShortUrlContainer = (
   },
 ) => {
   const onAddUrl = url => {
-    dispatch(addUrl(url));
+    try {
+      dispatch(addUrl(url));
+    } catch (error) {
+      dispatch(addUrlFailed(error));
+    }
   };
 
   return <ShortUrl onAddUrl={onAddUrl} />;

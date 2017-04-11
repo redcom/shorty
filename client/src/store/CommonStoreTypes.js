@@ -9,7 +9,10 @@ export type Link = {
 
 export type Links = Array<Link>;
 
+export type ErrorsType = Object;
+
 // State
 export type State = {
   links: Links,
+  error: ErrorsType,
 };
