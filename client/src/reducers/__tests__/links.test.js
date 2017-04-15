@@ -5,30 +5,12 @@ import { ADD_URL, REMOVE_URL } from '../../constants/ActionTypes';
 describe('links() -> reducer: ADD_URL', () => {
   test('store contain newly addedd link', () => {
     const state = [];
-    const action = { type: ADD_URL, url: 'http://some.url' };
+    const action = { type: ADD_URL, newLink: { url: 'http://some.url', shortUrl: 'http://some.url', id: 1 } };
     const actual = links(state, action);
     const expected = [
       {
-        id: state.length + 1,
-        url: action.url,
-        shortUrl: action.url,
+        ...action.newLink,
       },
-    ];
-
-    expect(actual).toEqual(expected);
-  });
-
-  test('newly added url received a property "id" equal to the length of store + 1', () => {
-    const state = [{}, {}];
-    const action = { type: ADD_URL, url: 'http://some.url' };
-    const actual = links(state, action);
-    const expected = [
-      {
-        id: state.length + 1,
-        url: action.url,
-        shortUrl: action.url,
-      },
-      ...state,
     ];
 
     expect(actual).toEqual(expected);
@@ -36,13 +18,9 @@ describe('links() -> reducer: ADD_URL', () => {
 
   test('added url is prepend to the store', () => {
     const state = [{}, {}];
-    const action = { type: ADD_URL, url: 'http://some.url' };
+    const action = { type: ADD_URL, newLink: { url: 'http://some.url', shortUrl: 'http://some.url', id: 1 } };
     const actual = links(state, action);
-    const expected = {
-      id: state.length + 1,
-      url: action.url,
-      shortUrl: action.url,
-    };
+    const expected = { ...action.newLink };
 
     expect(actual[0]).toEqual(expected);
   });

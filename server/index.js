@@ -30,7 +30,7 @@ if (isDevEnv) {
   app.use(express.static(path.join(baseDir, '/client/build')));
 }
 
-app.use(bodyParser.json());
+app.use(bodyParser.json({ strict: true }));
 
 app.set('storage', storage());
 

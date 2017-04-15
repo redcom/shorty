@@ -1,39 +1,7 @@
-import { addUrl, deleteUrl } from '../../actions/ShortUrlActions';
+jest.mock('../../helpers/api');
+jest.mock('../../helpers/validators');
 
-describe('addUrl', () => {
-  test('returns a correctly object formated for adding an url', () => {
-    const url = 'http://url.url';
-    const actual = addUrl(url);
-    const expected = {
-      type: 'ADD_URL',
-      url,
-    };
-
-    expect(actual).toEqual(expected);
-  });
-
-  test('returns an object when the request param is empty', () => {
-    const url = '';
-    const actual = addUrl(url);
-    const expected = {
-      type: 'ADD_URL',
-      url,
-    };
-
-    expect(actual).toEqual(expected);
-  });
-
-  test('returns an object when the request param is empty', () => {
-    const url = undefined;
-    const actual = addUrl(url);
-    const expected = {
-      type: 'ADD_URL',
-      url,
-    };
-
-    expect(actual).toEqual(expected);
-  });
-});
+import { deleteUrl } from '../../actions/ShortUrlActions';
 
 describe('deleteUrl', () => {
   test('returns a correctly formatted object for deleting an url', () => {
