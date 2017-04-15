@@ -1,4 +1,4 @@
-import {slideInAnimation} from '../styles/vars';
+import { slideInAnimation } from '../styles/vars';
 import styled from 'styled-components';
 
 const Errors = styled.div`
