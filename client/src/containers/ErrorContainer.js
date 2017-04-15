@@ -13,7 +13,7 @@ const ErrorContainer = (
   if (!error.error) return null;
   return (
     <Errors>
-      URL is malformed or could not be ziped!
+      {error.error.message}
     </Errors>
   );
 };
