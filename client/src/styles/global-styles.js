@@ -9,7 +9,6 @@ export const rotate360 = keyframes`
   }
 `;
 
-
 /* eslint no-unused-expressions: 0 */
 injectGlobal`
   html,
