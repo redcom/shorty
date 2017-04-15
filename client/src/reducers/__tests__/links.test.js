@@ -5,7 +5,10 @@ import { ADD_URL, REMOVE_URL } from '../../constants/ActionTypes';
 describe('links() -> reducer: ADD_URL', () => {
   test('store contain newly addedd link', () => {
     const state = [];
-    const action = { type: ADD_URL, newLink: { url: 'http://some.url', shortUrl: 'http://some.url', id: 1 } };
+    const action = {
+      type: ADD_URL,
+      newLink: { url: 'http://some.url', shortUrl: 'http://some.url', id: 1 },
+    };
     const actual = links(state, action);
     const expected = [
       {
@@ -18,7 +21,10 @@ describe('links() -> reducer: ADD_URL', () => {
 
   test('added url is prepend to the store', () => {
     const state = [{}, {}];
-    const action = { type: ADD_URL, newLink: { url: 'http://some.url', shortUrl: 'http://some.url', id: 1 } };
+    const action = {
+      type: ADD_URL,
+      newLink: { url: 'http://some.url', shortUrl: 'http://some.url', id: 1 },
+    };
     const actual = links(state, action);
     const expected = { ...action.newLink };
 
