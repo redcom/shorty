@@ -1,9 +1,12 @@
+import { shortRandomString } from '../libs/strings';
+
 export const newLink = (req, res) => {
   const storage = req.app.get('storage');
+
   const item = {
     ...req.body,
     id: storage.getNextId(),
-    shortUrl: `short_${storage.getNextId()}`,
+    shortUrl: shortRandomString(6),
   };
 
   storage.put(item);

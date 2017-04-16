@@ -22,11 +22,11 @@ export const removeUrlFailed = (error: ErrorsType): Object => ({
 export const addUrl = (url: string): Function =>
   async dispatch => {
     if (!isUrl(url)) {
-      dispatch(addUrlFailed(new Error('Url is not correctly inserted')));
+      return dispatch(addUrlFailed(new Error('Url is not correctly inserted')));
     }
     try {
       const { id, shortUrl } = await apiAddUrl({ url })();
-      dispatch({
+      return dispatch({
         type: ADD_URL,
         newLink: {
           id,
@@ -35,7 +35,7 @@ export const addUrl = (url: string): Function =>
         },
       });
     } catch (error) {
-      dispatch(addUrlFailed(error));
+      return dispatch(addUrlFailed(error));
     }
   };
 

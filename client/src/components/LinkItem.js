@@ -46,7 +46,11 @@ const LinkItem = (
   <Item>
     <ItemId>{id}</ItemId>
     <ItemLongUrl>{url}</ItemLongUrl>
-    <ItemShortUrl>{shortUrl}</ItemShortUrl>
+    <ItemShortUrl>
+      <a href={`//${window.location.host}/${shortUrl}`}>
+        {`${window.location.host}/${shortUrl}`}
+      </a>
+    </ItemShortUrl>
     <ItemActions>
       <Button onClick={onDelete}>Delete</Button>
     </ItemActions>
